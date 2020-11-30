@@ -1,0 +1,21 @@
+br /><br /><br /><br />
+<div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-4" *ngFor="let episode of episodes">
+        <div class="card">
+            <div class="">
+                <a [routerLink]="['/episode-detail', episode.id]"> </a>
+            </div>
+            <div class="card-inner">
+                <div class="header">
+                    <a [routerLink]="['/episode-detail', episode.id]">
+                        <h2>{{ episode.name }}</h2>
+                    </a>
+                    <small class="text-muted">{{ episode.created }}</small>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12 mt-5 container-notFound" *ngIf="episodes.length <= 0">
+        <p>No results.......</p>
+    </div>
+</div>
