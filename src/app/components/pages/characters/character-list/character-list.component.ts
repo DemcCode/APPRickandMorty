@@ -22,6 +22,7 @@ type RequesInfo = {
 })
 export class CharacterListComponent implements OnInit {
   characters: Character[] = [];
+
   info: RequesInfo = {
     next: null,
   };
@@ -72,8 +73,8 @@ export class CharacterListComponent implements OnInit {
   }
 
   onScrollTop(): void {
-    this.document.body.scrollTop = 0; // Safari
-    this.document.documentElement.scrollTop = 0; // Other
+    this.document.body.scrollTop = 0;
+    this.document.documentElement.scrollTop = 0;
   }
 
   private onUrlChanged(): void {

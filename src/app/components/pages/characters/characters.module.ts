@@ -6,6 +6,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { CharacterComponent } from '../characters/character.component';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 const myComponents = [
   CharacterDetailComponent,
@@ -15,7 +16,13 @@ const myComponents = [
 
 @NgModule({
   declarations: [...myComponents],
-  imports: [RouterModule, BrowserModule, FormsModule, CommonModule],
+  imports: [
+    RouterModule,
+    BrowserModule,
+    FormsModule,
+    CommonModule,
+    InfiniteScrollModule,
+  ],
   exports: [...myComponents],
 })
 export class CharactersModule {}

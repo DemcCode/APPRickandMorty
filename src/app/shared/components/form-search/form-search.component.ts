@@ -6,10 +6,10 @@ import { Router } from '@angular/router';
   template: `<input
     #inputSearch
     autofocus
-    type="text"
+    type="search"
     class="form-control-lg"
     placeholder="Search...."
-    (keyup)="onSearch(inputSearch.value)"
+    (keyup)="onSearchCharacter(inputSearch.value)"
   />`,
   styles: ['input {width:100%}'],
 })
@@ -18,9 +18,17 @@ export class FormSearchComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  onSearch(value: string) {
-    if (value && value.length > 3) {
+  onSearchCharacter(value: string) {
+    if (value && value.length > 2) {
       this.router.navigate(['/character-list'], {
+        queryParams: { q: value },
+      });
+    }
+  }
+
+  onSearchEpisode(value: string) {
+    if (value && value.length > 2) {
+      this.router.navigate(['/episode-list'], {
         queryParams: { q: value },
       });
     }

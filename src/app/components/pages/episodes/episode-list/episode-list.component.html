@@ -1,5 +1,4 @@
-br /><br /><br /><br />
-<div class="row">
+<div class="row" infinite-scroll (scrolled)="onScrollDown()">
     <div class="col-xs-12 col-sm-6 col-md-4" *ngFor="let episode of episodes">
         <div class="card">
             <div class="">
@@ -8,7 +7,7 @@ br /><br /><br /><br />
             <div class="card-inner">
                 <div class="header">
                     <a [routerLink]="['/episode-detail', episode.id]">
-                        <h2>{{ episode.name }}</h2>
+                        <h2>{{ episode.name | slice: 0:15 }}</h2>
                     </a>
                     <small class="text-muted">{{ episode.created }}</small>
                 </div>
@@ -18,4 +17,7 @@ br /><br /><br /><br />
     <div class="col-xs-12 col-sm-12 col-md-12 mt-5 container-notFound" *ngIf="episodes.length <= 0">
         <p>No results.......</p>
     </div>
+    <button [ngClass]="'no-hidden'" *ngIf="showGoUpButton" type="button" class="btn btn-outline-success btn-lg mt-5" (click)="onScrollTop()">
+    Go UP
+  </button>
 </div>
